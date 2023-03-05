@@ -107,11 +107,12 @@ $NPC&lt;br&gt;&lt;br&gt;]]]}
 (set: $HomelandsArray to (split: newline, (passage:&quot;Homeland&quot;)&#39;s source))
 (set: $Homeland to &#39;&lt;b&gt;Homeland:&lt;/b&gt; &#39; + (either: ...$HomelandsArray))
 
+(set: $Grade to &#39;&lt;b&gt;School Year:&lt;/b&gt; &#39; + (either: ...(a:&#39;First&#39;, &#39;Second&#39;,&#39;Third&#39;)))
 
 (set: $TraitsArray to (split: newline, (passage:&quot;Traits&quot;)&#39;s source))
 (set: $traits to &#39;&lt;b&gt;Характер:&lt;/b&gt; &#39; + (either: ...$TraitsArray))
 
-(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $Homeland)
+(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $Grade + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $Homeland)
 }</tw-passagedata><tw-passagedata pid="4" name="Houses" tags="" position="600,275" size="100,100">Heartslabyul
 Savanaclaw
 Octavinelle
