@@ -89,6 +89,8 @@ $NPC&lt;br&gt;&lt;br&gt;]]]}
 |generated&gt;[]
 </tw-passagedata><tw-passagedata pid="2" name="Init" tags="startup" position="625,0" size="100,100">{(set: $n to 1)
 (set: $NPC to &quot;&quot;)
+(set: $GradeArray to (a:&#39;First&#39;, &#39;Second&#39;,&#39;Third&#39;))
+(set: $ClassLetters to (a:&#39;A&#39;, &#39;B&#39;,&#39;C&#39;, &#39;D&#39;, &#39;E&#39;))
 }</tw-passagedata><tw-passagedata pid="3" name="Generate NPC" tags="" position="775,125" size="100,100">{(set: $HouseArray to (split: newline, (passage:&quot;Houses&quot;)&#39;s source))
 (set: $house to (either: ...$HouseArray))
 (set: $houseStr to &#39;&lt;b&gt;Dorm:&lt;/b&gt; &#39; + $house)
@@ -109,12 +111,14 @@ $NPC&lt;br&gt;&lt;br&gt;]]]}
 (set: $HomelandsArray to (split: newline, (passage:&quot;Homeland&quot;)&#39;s source))
 (set: $homeland to &#39;&lt;b&gt;Homeland:&lt;/b&gt; &#39; + (either: ...$HomelandsArray))
 
-(set: $Grade to &#39;&lt;b&gt;School Year:&lt;/b&gt; &#39; + (either: ...(a:&#39;First&#39;, &#39;Second&#39;,&#39;Third&#39;)))
+(set: $Grade to (either:...(a: 1,2,3)))
+(set: $GradeStr to &#39;&lt;b&gt;School Year:&lt;/b&gt; &#39; + (nth: $Grade, ...$GradeArray))
+(set: $ClassStr to &#39;&lt;b&gt;Class:&lt;/b&gt; &#39; + (str: $Grade) + &#39;-&#39; + $ClassLetters&#39;s random)
 
 (set: $TraitsArray to (split: newline, (passage:&quot;Traits&quot;)&#39;s source))
 (set: $traits to &#39;&lt;b&gt;Main appearance trait:&lt;/b&gt; &#39; + (either: ...$TraitsArray))
 
-(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $Grade + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $homeland + &#39;&lt;br&gt;&#39; + $starsign + &#39;&lt;br&gt;&#39; + $traits)
+(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $GradeStr + &#39;&lt;br&gt;&#39; + $ClassStr + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $homeland + &#39;&lt;br&gt;&#39; + $starsign + &#39;&lt;br&gt;&#39; + $traits)
 }</tw-passagedata><tw-passagedata pid="4" name="Houses" tags="" position="600,275" size="100,100">Heartslabyul
 Savanaclaw
 Octavinelle
