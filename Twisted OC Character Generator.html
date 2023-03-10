@@ -85,7 +85,6 @@ $NPC&lt;br&gt;]]}
 {(link-repeat: &quot;3&quot;)[(replace: ?generated)[](set: $n to 3)(for: each _i, ...(range:1,$n))[(append: ?generated)[(display: &quot;Generate NPC&quot;)
 $NPC&lt;br&gt;&lt;br&gt;]]]}
 {(link-repeat: &quot;5&quot;)[(replace: ?generated)[](set: $n to 5)(for: each _i, ...(range:1,$n))[(append: ?generated)[(display: &quot;Generate NPC&quot;) $NPC&lt;br&gt;&lt;br&gt;]]]}
-{(link-repeat: &quot;10&quot;)[(replace: ?generated)[](set: $n to 10)(for: each _i, ...(range:1,$n))[(append: ?generated)[(display: &quot;Generate NPC&quot;) $NPC&lt;br&gt;&lt;br&gt;]]]}
 
 |generated&gt;[]
 </tw-passagedata><tw-passagedata pid="2" name="Init" tags="startup" position="625,0" size="100,100">{(set: $n to 1)
@@ -113,9 +112,9 @@ $NPC&lt;br&gt;&lt;br&gt;]]]}
 (set: $Grade to &#39;&lt;b&gt;School Year:&lt;/b&gt; &#39; + (either: ...(a:&#39;First&#39;, &#39;Second&#39;,&#39;Third&#39;)))
 
 (set: $TraitsArray to (split: newline, (passage:&quot;Traits&quot;)&#39;s source))
-(set: $traits to &#39;&lt;b&gt;Характер:&lt;/b&gt; &#39; + (either: ...$TraitsArray))
+(set: $traits to &#39;&lt;b&gt;Main appearance trait:&lt;/b&gt; &#39; + (either: ...$TraitsArray))
 
-(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $Grade + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $homeland + &#39;&lt;br&gt;&#39; + $starsign)
+(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $Grade + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $homeland + &#39;&lt;br&gt;&#39; + $starsign + &#39;&lt;br&gt;&#39; + $traits)
 }</tw-passagedata><tw-passagedata pid="4" name="Houses" tags="" position="600,275" size="100,100">Heartslabyul
 Savanaclaw
 Octavinelle
@@ -141,43 +140,26 @@ Track and Field Club
 Film Research Club
 Science Club
 Pop Music Club
-Board Game Club</tw-passagedata><tw-passagedata pid="7" name="Traits" tags="" position="975,275" size="100,100">Креативный
-Храбрый
-Тактичный
-Волевой
-Эрудированный
-Одаренный
-Любопытный
-Тихий
-Таинственный
-Энергичный
-Идеалистичный
-Интеллектуальный
-Властный
-Логичный
-Агрессивный
-Поэтичный
-Добрый
-Харизматичный
-Гипнотизирующий
-Общительный
-Предприимчивый
-Жестокий
-Иррациональный
-Флегматичный
-Циничный
-Безнравственный
-Чувствительный
-Чуткий
-Унылый
-Громкий
-Спонтанный
-Антисоциальный
-Наивный
-Устрашающий
-Слабый
-Сильный
-</tw-passagedata><tw-passagedata pid="8" name="Homeland" tags="" position="875,400" size="100,100">Briar Valley
+Board Game Club</tw-passagedata><tw-passagedata pid="7" name="Traits" tags="" position="975,275" size="100,100">Unkempt
+Highly decorated
+Fashionable
+Cute
+Elegant
+Unbothered
+Discreet
+Mystical
+Expressive
+Fragile
+Sturdy
+Dapper
+Neatly dressed
+Flashy
+Unapproachable
+Bright
+Practical
+Fierce
+Tired
+Sly</tw-passagedata><tw-passagedata pid="8" name="Homeland" tags="" position="875,400" size="100,100">Briar Valley
 Coral Sea
 Kingdom of Heroes
 Port o&#39;Bliss
