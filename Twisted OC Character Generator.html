@@ -93,6 +93,8 @@ $NPC&lt;br&gt;&lt;br&gt;]]]}
 (set: $ClassLetters to (a:&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;,&#39;E&#39;))
 (set: $birthplace to &#39;Unknown&#39;)
 (set: $race to &#39;Unknown&#39;)
+(set: $numberRand to &#39;Unknown&#39;)
+(set: $ExcludedArray to (split: newline, (passage:&quot;ExcludedCodes&quot;)&#39;s source))
 }</tw-passagedata><tw-passagedata pid="3" name="Generate NPC" tags="" position="775,125" size="100,100">{(set: $HouseArray to (split: newline, (passage:&quot;Houses&quot;)&#39;s source))
 (set: $house to (either: ...$HouseArray))
 (set: $houseStr to &#39;&lt;b&gt;Dorm:&lt;/b&gt; &#39; + $house)
@@ -116,12 +118,15 @@ $NPC&lt;br&gt;&lt;br&gt;]]]}
 
 (set: $Grade to (either:...(a: 1,2,3)))
 (set: $GradeStr to &#39;&lt;b&gt;School Year:&lt;/b&gt; &#39; + (nth: $Grade, ...$GradeArray))
-(set: $ClassStr to &#39;&lt;b&gt;Class:&lt;/b&gt; &#39; + (str: $Grade) + &#39;-&#39; + $ClassLetters&#39;s random)
+(set: $Class to (str: $Grade) + $ClassLetters&#39;s random)
+(set: $numberRand to $Class + &#39;-&#39; + (str: (random: 1,35)))
+(display: &#39;CalculateCode&#39;)
+(set: $studentCode to &#39;&lt;b&gt;Student Code:&lt;/b&gt; &#39; + $numberRand)
 
 (set: $TraitsArray to (split: newline, (passage:&quot;Traits&quot;)&#39;s source))
 (set: $traits to &#39;&lt;b&gt;Main appearance trait:&lt;/b&gt; &#39; + (either: ...$TraitsArray))
 
-(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $GradeStr + &#39;&lt;br&gt;&#39; + $ClassStr + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $starsign + &#39;&lt;br&gt;&#39; + $traits + &#39;&lt;br&gt;&#39; + $HomelandStr)
+(set: $NPC to $houseStr + &#39;&lt;br&gt;&#39; + $GradeStr + &#39;&lt;br&gt;&#39; + $studentCode + &#39;&lt;br&gt;&#39; + $BestSubjectStr + &#39;&lt;br&gt;&#39; + $WorstSubject + &#39;&lt;br&gt;&#39; + $club + &#39;&lt;br&gt;&#39; + $starsign + &#39;&lt;br&gt;&#39; + $traits + &#39;&lt;br&gt;&#39; + $HomelandStr)
 }</tw-passagedata><tw-passagedata pid="4" name="Houses" tags="" position="600,275" size="100,100">Heartslabyul
 Savanaclaw
 Octavinelle
@@ -196,6 +201,49 @@ Pisces</tw-passagedata><tw-passagedata pid="10" name="CalculateRace" tags="" pos
 (else-if: $race is &#39;mermaid&#39;)[(set: $birthplace to &#39;Coral Sea&#39;)]
 (else-if: $race is &#39;fairy&#39;)[(set: $birthplace to &#39;Briar Valley&#39;)]
 (else-if: $race is &#39;beastman&#39;)[(set: $birthplace to (either: &#39;Queendom of Roses&#39;, &#39;Shaftland&#39;, &#39;Sunset Savanna&#39;))]
+}</tw-passagedata><tw-passagedata pid="11" name="ExcludedCodes" tags="" position="875,525" size="100,100">2E-27
+2E-26
+1A-26
+1A-25
+1A-25
+1A-24
+3B-6
+3B-5
+3E-5
+3E-4
+3A-14
+3A-13
+1B-12
+1B-11
+2B-3
+2B-2
+2C-4
+2C-3
+2E-14
+2E-13
+2D-18
+2D-17
+2A-2
+2A-1
+2C-32
+2C-31
+3C-24
+3C-23
+1B-8
+1B-7
+3A-11
+3A-10
+3B-29
+3B-28
+3D-7
+3D-6
+2A-23
+2A-22
+1D-34
+1D-33
+3E-31
+3E-30</tw-passagedata><tw-passagedata pid="12" name="CalculateCode" tags="" position="750,525" size="100,100">{(set: $i to 2)
+(for: each _item, ...$ExcludedArray)[(if: _item is $numberRand)[(set: $numberRand to $ExcludedArray&#39;s ($i - 1))] (set: $i to it + 1)]
 }</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
