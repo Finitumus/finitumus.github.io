@@ -1,4 +1,4 @@
 # finitumus.github.io
-https://finitumus.github.io/Twisted%20OC%20Character%20Generator.html
+[Генератор ОСов для Twisted](https://finitumus.github.io/Twisted%20OC%20Character%20Generator.html)
 
-https://finitumus.github.io/SwampWitchesWorld.html
+[Вики по миру Болотных Ведьм](https://finitumus.github.io/SwampWitchesWorld.html)
